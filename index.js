@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ path: './.env' })
 
 const Web3 = require('web3')
 const axios = require('axios')
@@ -6,7 +6,7 @@ const EthereumTx = require('ethereumjs-tx')
 const log = require('ololog').configure({ time: true })
 const ansi = require('ansicolor').nice
 
-const testnet = `https://rinkeby.infura.io/v3/454bcb7b27b242d9803e3a575fa4a12c`
+const testnet = `https://rinkeby.infura.io/v3/${process.env.INFURA_ACCESS_TOKEN}`
 
 const web3 = new Web3(new Web3.providers.HttpProvider(testnet))
 
